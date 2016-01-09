@@ -12,10 +12,10 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 	}
 
-	void OnTriggerEnter2D(Collider2D coll) {
-		Debug.Log (coll.gameObject.name);
+	void OnCollisionEnter2D(Collision2D coll) {
+		//die
 		if (coll.gameObject.tag == "Enemy") {
-			Debug.Log("die");
+			transform.position = new Vector3 (0, 0, 0);
 		}
 	}
 }

@@ -33,6 +33,14 @@ public class ZombieScript : MonoBehaviour {
 
 	}
 
+	void OnTriggerEnter2D(Collider2D coll) {
+		Debug.Log ("Trigger");
+	}
+
+	void OnCollisionEnter2D(Collision2D coll) {
+		Debug.Log ("Collide");
+	}
+
 	private Vector2 toVec2(Vector3 vec3) {
 		return new Vector2 (vec3.x, vec3.y);
 	}
