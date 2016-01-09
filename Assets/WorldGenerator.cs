@@ -3,10 +3,11 @@ using System.Collections;
 
 public class WorldGenerator : MonoBehaviour {
 
-    public GameObject Wall_Solid;
+    public GameObject[] WallVariations;
+    public GameObject[] CeilingVariations;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
 	
 	}
