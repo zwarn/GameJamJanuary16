@@ -9,14 +9,18 @@ public class ZombieScript : MonoBehaviour {
 	public LayerMask bounce;
 
 	private Rigidbody2D rigidBody;
+	private SpriteRenderer spriterRenderer;
 
 	// Use this for initialization
 	void Start () {
 		rigidBody = this.GetComponent<Rigidbody2D> ();
+		spriterRenderer = this.GetComponentInChildren<SpriteRenderer> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		spriterRenderer.flipX = left;
 
 		Vector2 dir = left ? new Vector2 (-1, 0) : new Vector2 (1, 0);
 
