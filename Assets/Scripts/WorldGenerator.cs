@@ -5,7 +5,8 @@ public class WorldGenerator : MonoBehaviour {
 
     public GameObject[] WallVariations;
     public GameObject[] CeilingVariations;
-	public GameObject enemy;
+    public GameObject Bground;
+    public GameObject enemy;
 
     // Use this for initialization
     void Start () {
@@ -31,6 +32,8 @@ public class WorldGenerator : MonoBehaviour {
             int hausbreite = 5;
             for (int j = -hausbreite; j < hausbreite; j++)
             {
+                GameObject LocalGameObject2 = (GameObject)GameObject.Instantiate(Bground, new Vector3(j * Floorwidth, i * Floorheight, 0), Quaternion.identity);
+
                 // WallGenerator
 
                 float Randomvalue = Random.value;
