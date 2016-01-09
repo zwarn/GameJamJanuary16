@@ -5,6 +5,7 @@ public class WorldGenerator : MonoBehaviour {
 
     public GameObject[] WallVariations;
     public GameObject[] CeilingVariations;
+	public GameObject enemy;
 
     // Use this for initialization
     void Start () {
@@ -13,8 +14,7 @@ public class WorldGenerator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyUp(KeyCode.A)) {GenerateWorld (); }
-	
+		
 	}
 
     void GenerateWorld ()
@@ -26,7 +26,7 @@ public class WorldGenerator : MonoBehaviour {
         int currentfloor = (int)(playerPos.x / Floorheight);
         float WallOffsetX = Floorwidth / 2;
         float CeilingOffsetY = Floorheight / 2;
-        for (int i = -5; i < 4; i++)
+        for (int i = -15; i < 4; i++)
         {
             int hausbreite = 5;
             for (int j = -hausbreite; j < hausbreite; j++)
@@ -61,7 +61,7 @@ public class WorldGenerator : MonoBehaviour {
                 else
                 {
                     GameObject localCeilingVariation;
-                    if (Randomvalue < 0.8) // Solid Ceiling
+                    if (Randomvalue < 0.6) // Solid Ceiling
                     {
                         localCeilingVariation = CeilingVariations[0];
                     }
@@ -78,6 +78,11 @@ public class WorldGenerator : MonoBehaviour {
                         localCeilingVariation = CeilingVariations[3];
                     }
                     GameObject LocalGameObject = (GameObject)GameObject.Instantiate(localCeilingVariation, new Vector3(j * Floorwidth, i * Floorheight + CeilingOffsetY, 0), Quaternion.identity);
+
+					if (Random.value > 0.9f) {
+						GameObject.Instantiate(enemy, new Vector3(j * Floorwidth, i * Floorheight + CeilingOffsetY, 0), Quaternion.identity);
+					}
+
                     //LocalGameObject.transform.localScale = new Vector3(RoomScale, RoomScale, RoomScale);
                 }
             }
